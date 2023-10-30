@@ -1,0 +1,62 @@
+﻿<Window x:Class="Hypo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hypo"
+        mc:Ignorable="d"
+        Title="Hypo" Height="450" Width="800">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Label HorizontalAlignment="Center" Grid.Column="0" FontSize="23">Jaarinkomen</Label>
+            <TextBox Grid.Column="0" Width="200" Height="40" FontSize="23" Text="{Binding MonthlyIncome, FallbackValue=0}"></TextBox>
+        </Grid>
+        
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Label HorizontalAlignment="Center" Grid.Column="0" FontSize="23">Postcode</Label>
+            <TextBox Grid.Column="0" Width="200" Height="40" FontSize="23" Text="{Binding Postcode, FallbackValue=''}"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Button Width="200" Height="40" FontSize="23" Command="{Binding CalculateCommand}">Bereken</Button>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Label HorizontalAlignment="Center" Grid.Column="0" FontSize="23">Rentvaste periode</Label>
+            <ComboBox Grid.Column="0" Width="200" Height="40" FontSize="23" SelectedValuePath="Content" SelectedValue="{Binding Period}">
+                <ComboBoxItem Content="1" />
+                <ComboBoxItem Content="5" />
+                <ComboBoxItem Content="10" />
+                <ComboBoxItem Content="20" />
+                <ComboBoxItem Content="30" />
+            </ComboBox>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Label HorizontalAlignment="Center" Grid.Column="0" FontSize="23">Jaarinkomen partner</Label>
+            <TextBox Grid.Column="0" Width="200" Height="40" FontSize="23" Text="{Binding PartnerIncome, FallbackValue=0}"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HasDebt}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+                Klant heeft een studieschuld
+            </CheckBox>
+        </Grid>
+    </Grid>
+</Window>

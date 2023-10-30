@@ -1,0 +1,21 @@
+﻿<Window x:Class="Hypo.Result"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hypo"
+        mc:Ignorable="d"
+        Title="Result" Height="450" Width="800"
+        Background="DarkGray" FontSize="35">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <Label>Max lening:</Label>
+            <Label Content="{Binding MaxDebt, FallbackValue='100 000'}"></Label>
+            <Label>Maandelijkse rente:</Label>
+            <Label Content="{Binding MonthlyRent, FallbackValue='100 000'}"></Label>
+            <Label>Maandelijkse betaling:</Label>
+            <Label Content="{Binding MonthlyPayment, FallbackValue='100 000'}"></Label>
+            <Label Content="{Binding ErrorMessage, FallbackValue=''}"></Label>
+        </StackPanel>
+    </Grid>
+</Window>
